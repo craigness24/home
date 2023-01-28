@@ -1,0 +1,1 @@
+Install nixpkgs and brew
