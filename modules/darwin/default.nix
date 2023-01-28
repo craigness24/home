@@ -20,7 +20,7 @@
     finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
     dock.autohide = true;
-    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain.AppleShowAllExtensions = false;
     NSGlobalDomain.InitialKeyRepeat = 14;
     NSGlobalDomain.KeyRepeat = 1;
   };

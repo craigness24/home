@@ -7,6 +7,7 @@
     fd
     curl
     less
+    htop
   ];
   home.sessionVariables = {
     PAGER = "less";
@@ -25,15 +26,17 @@
   programs.zsh.enableSyntaxHighlighting = true;
   programs.zsh.shellAliases = {
     ls = "ls --color=auto -F";
-    nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-    nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+    nixswitch = "darwin-rebuild switch --flake ~/.config/nixpkgs/.#";
+    nixup = "pushd ~/.config/nixpkgs; nix flake update; nixswitch; popd";
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
- # programs.alacritty = {
- #   enable = true;
- #   settings.font.normal.family = "MesloLGS Nerd Font Mono";
- #   settings.font.size = 16;
- # };
- #home.file.".inputrc".source = ./dotfiles/inputrc;
+#  programs.kitty = {
+#    enable = true;
+#    settings.font_family = "JetbrainsMono Nerd Font Mono";
+#    settings.font_size = 16;
+#    settings.hide_window_decorations = "titlebar-only";
+#  };
+  home.file.".config/kitty".source = ./dotfiles/kitty;
+  home.file.".ssh/config".source = ./dotfiles/sshconfig;
 }

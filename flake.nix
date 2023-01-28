@@ -1,9 +1,9 @@
 {
-  description = "my minimal flake";
+  description = "Craig's homelab flake";
   inputs = {
     # Where we get most of our software. Giant mono repo with recipes
     # called derivations that say how to build software.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11"; # nixos-22.11
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin"; 
 
     # Manages configs links things into your home directory
     home-manager.url = "github:nix-community/home-manager/master";
@@ -14,19 +14,20 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
-    darwinConfigurations { 
+    darwinConfigurations = { 
       m1mbp = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules = [
           ./modules/darwin
+          ./modules/darwin/homebrew.nix
           home-manager.darwinModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { };
-              users.demo.imports = [ ./modules/home-manager ];
+              extraSpecialArgs = { inherit inputs; };
+              users.craig.imports = [ ./modules/home-manager ];
           };
         }
       ];

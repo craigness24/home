@@ -15,5 +15,5 @@
       "brave-browser"
     ];
     taps = [];
-  }
+  };
 }
