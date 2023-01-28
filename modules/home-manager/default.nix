@@ -19,7 +19,11 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
   programs.exa.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName  = "Craig Adams";
+    userEmail = "craigness24@gmail.com";
+  };
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.enableAutosuggestions = true;
@@ -31,12 +35,7 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
-#  programs.kitty = {
-#    enable = true;
-#    settings.font_family = "JetbrainsMono Nerd Font Mono";
-#    settings.font_size = 16;
-#    settings.hide_window_decorations = "titlebar-only";
-#  };
+
   home.file.".config/kitty".source = ./dotfiles/kitty;
   home.file.".ssh/config".source = ./dotfiles/sshconfig;
 }
