@@ -13,25 +13,16 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
-    darwinConfigurations = { 
-      m1mbp = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [
-          ./modules/darwin
-          ./modules/darwin/homebrew.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.craig.imports = [ ./modules/home-manager ];
-          };
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }:
+    let
+        user = "craig";
+    in
+    {
+    darwinConfigurations = (
+        import ./darwin {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager darwin user;
         }
-      ];
-    };
-  };
+     );
   };
 }
