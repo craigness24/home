@@ -5,12 +5,21 @@
     shells = with pkgs; [ bash zsh ];
     loginShell = pkgs.zsh;
     systemPackages = [ pkgs.coreutils ];
-    #systemPath = [ "/opt/homebrew/bin" ];
+    systemPath = [ "/opt/homebrew/bin" ];
     pathsToLink = [ "/Applications" ];
   };
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+  nix = {
+    package = pkgs.nix;
+    gc = {
+      automatic = true;
+      interval.Day = 7;
+      options = "--delete-older-than 7d";
+    };
+    extraOptions = ''
+      auto-optimise-store = true
+      experimental-features = nix-command flakes
+    '';
+  };
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
   fonts.fontDir.enable = true; # DANGER
@@ -18,7 +27,6 @@
   services.nix-daemon.enable = true;
   system.defaults = {
     finder.AppleShowAllExtensions = true;
-    finder._FXShowPosixPathInTitle = true;
     dock.autohide = true;
     NSGlobalDomain.AppleShowAllExtensions = false;
     NSGlobalDomain.InitialKeyRepeat = 14;

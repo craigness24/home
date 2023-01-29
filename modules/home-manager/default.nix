@@ -19,6 +19,9 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
   };
+  programs.neovim = {
+    enable = true
+  };
   programs.bat.enable = true;
   programs.bat.config.theme = "TwoDark";
   programs.fzf.enable = true;
@@ -40,7 +43,14 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
+  programs.ssh.knownHosts = [
+    {
+      hostNames = [ "github"  ];
+      publicKeyFile = ~/.ssh/id_craigness24.pub;
+    }
+  ];
 
   home.file.".config/kitty".source = ./dotfiles/kitty;
   home.file.".ssh/config".source = ./dotfiles/sshconfig;
+  home.file.".config/nvim/init.lua".source = ./dotfiles/nvim_init
 }
