@@ -14,6 +14,11 @@
     CLICLOLOR = 1;
 #    EDITOR = "nvim";
   };
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
   programs.bat.enable = true;
   programs.bat.config.theme = "TwoDark";
   programs.fzf.enable = true;

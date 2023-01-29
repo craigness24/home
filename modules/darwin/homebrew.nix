@@ -10,6 +10,7 @@
     brews = [];
     caskArgs.no_quarantine = true;
     casks = [
+      "amethyst"
       "kitty"
       "intellij-idea"
       "brave-browser"
