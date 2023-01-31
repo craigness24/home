@@ -9,7 +9,7 @@
     less
     htop
     awscli2
-    # azure-cli
+    azure-cli
   ];
   home.sessionVariables = {
     PAGER = "less";
