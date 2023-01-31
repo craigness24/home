@@ -32,6 +32,13 @@
         NSGlobalDomain.AppleShowAllExtensions = false;
         NSGlobalDomain.InitialKeyRepeat = 14;
         NSGlobalDomain.KeyRepeat = 1;
+        # 3 scaling is the max available in the settings UI
+        NSGlobalDomain."com.apple.trackpad.scaling" = 3.0;
+        ".GlobalPreferences"."com.apple.mouse.scaling" = "3";
+        # Figure out how to setup spotlight to toggle indexing settings
+        # defaults read com.apple.spotlight orderdItems
+        # defaults write com.apple.spotlight orderedItems -array \
+        # '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
     };
   };
   fonts.fontDir.enable = true; # DANGER

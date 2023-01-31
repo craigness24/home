@@ -7,7 +7,6 @@
       cleanup = "zap";
     };
     masApps = {};
-    brews = [];
     caskArgs.no_quarantine = true;
     casks = [
       "kitty"
@@ -21,6 +20,16 @@
       "microsoft-teams"
       "microsoft-outlook"
     ];
-    taps = [];
+    taps = [ "mongodb/brew" ];
+    brews = [ 
+      {
+        name = "mongodb-community"; 
+        restart_service = "changed";
+      }
+      {
+        name = "nats-server";
+        restart_service = "changed";
+      }
+    ];
   };
 }
