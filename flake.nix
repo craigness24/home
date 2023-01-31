@@ -15,13 +15,13 @@
   };
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }:
     let
-        user = "craig";
+        tmp = "craig";
     in
     {
     darwinConfigurations = (
         import ./darwin {
           inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin user;
+          inherit inputs nixpkgs home-manager darwin;
         }
      );
   };
