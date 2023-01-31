@@ -9,6 +9,12 @@
 % ./result/sw/bin/darwin-rebuild switch --flake ~/.config/nixpkgs
 ```
 5. Reboot to make sure everything is as you expect when logging back in
+6. Run nixswitch, see that you have a few errors, we want nix to control these so delete them:
+```
+> nixswitch
+> sudo rm /etc/nix/nix.conf /etc/shells
+> nixswitch
+```
 
 
 
