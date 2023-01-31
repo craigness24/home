@@ -8,6 +8,8 @@
     curl
     less
     htop
+    awscli2
+    # azure-cli
   ];
   home.sessionVariables = {
     PAGER = "less";

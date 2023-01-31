@@ -18,7 +18,8 @@
       "brave-browser"
       "slack"
       "mongodb-compass"
-      "microsoft-remote-desktop"
+      "microsoft-teams"
+      "microsoft-outlook"
     ];
     taps = [];
   };
