@@ -8,6 +8,7 @@
     curl
     less
     htop
+    kubectl
     awscli2
     azure-cli
     docker
@@ -51,6 +52,7 @@
   programs.zsh.shellAliases = {
     ls = "ls --color=auto -F";
     ll = "ls -lhtr";
+    k = "kubectl";
     devstart = "make --file=~/.config/nixpkgs/darwin/work/Makefile start";
     devstop = "make --file=~/.config/nixpkgs/darwin/work/Makefile stop";
     nixswitch = "darwin-rebuild switch --flake ~/.config/nixpkgs/.#";
@@ -58,6 +60,11 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
+  programs.starship.settings = {
+    kubernetes = {
+      disabled = false;
+    }; 
+  };
 
   home.file.".config/kitty".source = ./dotfiles/kitty;
 }
