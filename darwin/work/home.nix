@@ -10,11 +10,17 @@
     htop
     awscli2
     azure-cli
+    docker
+    colima
   ];
   home.sessionVariables = {
     PAGER = "less";
     CLICLOLOR = 1;
     EDITOR = "vi";
+
+    # Allow test container support using colima
+    TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE = /var/run/docker.sock;
+    DOCKER_HOST = "unix://$HOME/.colima/docker.sock";
   };
   programs.direnv = {
     enable = true;

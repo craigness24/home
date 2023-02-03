@@ -21,7 +21,7 @@
       "microsoft-outlook"
     ];
     taps = [ "mongodb/brew" ];
-    brews = [ 
+    brews = [
       {
         name = "mongodb-community"; 
         restart_service = "changed";
