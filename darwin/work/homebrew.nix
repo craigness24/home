@@ -17,19 +17,11 @@
       "brave-browser"
       "slack"
       "mongodb-compass"
+      "altair-graphql-client"
       "microsoft-teams"
       "microsoft-outlook"
     ];
-    taps = [ "mongodb/brew" ];
-    brews = [
-      {
-        name = "mongodb-community"; 
-        restart_service = "changed";
-      }
-      {
-        name = "nats-server";
-        restart_service = "changed";
-      }
-    ];
+    taps = [];
+    brews = [];
   };
 }

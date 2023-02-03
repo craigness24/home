@@ -12,6 +12,10 @@
     azure-cli
     docker
     colima
+    mongodb
+    mongodb-tools
+    mongosh
+    nats-server
   ];
   home.sessionVariables = {
     PAGER = "less";
@@ -46,6 +50,9 @@
   programs.zsh.enableSyntaxHighlighting = true;
   programs.zsh.shellAliases = {
     ls = "ls --color=auto -F";
+    ll = "ls -lhtr";
+    devstart = "make --file=~/.config/nixpkgs/darwin/work/Makefile start";
+    devstop = "make --file=~/.config/nixpkgs/darwin/work/Makefile stop";
     nixswitch = "darwin-rebuild switch --flake ~/.config/nixpkgs/.#";
     nixup = "pushd ~/.config/nixpkgs; nix flake update; nixswitch; popd";
   };

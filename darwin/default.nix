@@ -22,7 +22,8 @@ in
   };
   work = darwin.lib.darwinSystem {
     inherit system;
-    pkgs = import nixpkgs { system = system; };
+    pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
+    
     specialArgs = { inherit inputs; };
     modules = [
       ./configuration.nix
