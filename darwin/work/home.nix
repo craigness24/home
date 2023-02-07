@@ -9,6 +9,7 @@
     less
     htop
     kubectl
+    kubernetes-helm
     awscli2
     azure-cli
     docker
