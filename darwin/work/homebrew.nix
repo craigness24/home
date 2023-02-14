@@ -20,6 +20,7 @@
       "altair-graphql-client"
       "microsoft-teams"
       "microsoft-outlook"
+      "keeper-password-manager"
     ];
     taps = [];
     brews = [];
